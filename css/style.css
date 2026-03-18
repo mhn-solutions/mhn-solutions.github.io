@@ -136,3 +136,68 @@ body {
   transition: all 0.3s ease;
 }
 .form-input:focus { outline: none; border-color: var(--accent-teal); }
+
+/* =========================================================
+   MOBILE SCROLL GLITCH & PERFORMANCE FIXES
+   ========================================================= */
+
+/* 1. Scrolling Stability & Overflow Overrides */
+html, body {
+  overflow-x: hidden;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none; /* Prevents bounce effects that cause clipping */
+}
+
+/* 2. Isolate stacking contexts to stop GPU background corruption */
+section {
+  position: relative;
+  isolation: isolate; 
+}
+
+/* 3. Override Tailwind's 100vh with mobile-safe dynamic viewport height */
+.min-h-screen {
+  min-height: 100dvh !important; 
+}
+
+/* 4. Strict Mobile Overrides (< 768px) */
+@media (max-width: 767px) {
+  
+  /* Strip hardware-accelerated transforms from scroll animations */
+  .fade-in {
+    transform: none !important;
+    transition: opacity 0.4s ease !important;
+  }
+  .fade-in.visible {
+    transform: none !important;
+  }
+
+  /* Strip heavy blur and glass effects globally on mobile */
+  .glass-effect,
+  .orb,
+  .service-card,
+  .pricing-card,
+  .testimonial-card,
+  [style*="backdrop-filter"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+    will-change: auto !important;
+    transform: none !important;
+  }
+
+  /* Solidify the specific transparent gradient in the About section */
+  .about-stats-wrapper {
+    background: rgba(15, 29, 37, 0.98) !important; /* Solid dark fallback */
+    background-image: none !important;
+    border: 1px solid rgba(15, 185, 177, 0.15) !important;
+  }
+
+  /* Solidify the inner stat cards */
+  .mobile-safe-card {
+    background: #0B1F24 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
