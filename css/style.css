@@ -1,203 +1,266 @@
+/* ====================================================
+   MHN Solutions — Stylesheet (SEO & Performance Optimized)
+   ==================================================== */
+
 :root {
-  --bg-primary: #0A1419;
-  --bg-secondary: #0F1D25;
-  --bg-card: #111F28;
-  --accent-teal: #0FB9B1;
-  --glow-teal: #1ED6C7;
-  --white: #FFFFFF;
+    --bg-primary: #0A1419;
+    --bg-secondary: #0F1D25;
+    --bg-card: #111F28;
+    --accent-teal: #0FB9B1;
+    --glow-teal: #1ED6C7;
+    --white: #FFFFFF;
 }
 
-html { 
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
+/* ====== BASE ====== */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  color: var(--white);
-  overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--white);
+    overflow-x: hidden;
 }
 
 .font-poppins { font-family: 'Poppins', sans-serif; }
 
-/* SPA Page Toggle */
+/* Screen reader only text (for SEO H1 hidden prefix) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ====== SPA PAGE TOGGLE ====== */
 .page { display: none; min-height: 100%; }
 .page.active { display: block; }
 
-/* Hero Animated Background */
+/* ====== HERO ====== */
 .hero-bg {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(10, 20, 25, 0.9) 0%, rgba(15, 29, 37, 0.95) 100%);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(10, 20, 25, 0.9) 0%, rgba(15, 29, 37, 0.95) 100%);
 }
 
 .hero-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 800px 500px at 50% 50%, rgba(15, 185, 177, 0.08) 0%, transparent 60%);
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 800px 500px at 50% 50%, rgba(15, 185, 177, 0.08) 0%, transparent 60%);
+    pointer-events: none;
 }
 
-/* Scroll Animations */
+/* ====== SCROLL ANIMATIONS ====== */
 .fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* Buttons - FIXED FOR WRAPPING AND ALIGNMENT */
+/* ====== BUTTONS ====== */
 .btn-primary, .btn-secondary, .btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-  border-radius: 12px;
-  padding: 14px 32px;
-  font-weight: 700;
-  transition: all 0.3s ease;
-  cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 12px;
+    padding: 14px 32px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-teal), var(--glow-teal));
-  color: #0B1F24;
-  box-shadow: 0 10px 30px rgba(15, 185, 177, 0.2);
+    background: linear-gradient(135deg, var(--accent-teal), var(--glow-teal));
+    color: #0B1F24;
+    box-shadow: 0 10px 30px rgba(15, 185, 177, 0.2);
 }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(15, 185, 177, 0.4); }
 
 .btn-secondary {
-  border: 2px solid var(--accent-teal);
-  color: var(--white);
-  background: transparent;
+    border: 2px solid var(--accent-teal);
+    color: var(--white);
+    background: transparent;
+    text-decoration: none;
 }
 .btn-secondary:hover { background: var(--accent-teal); color: #0B1F24; transform: translateY(-3px); }
 
 .btn-whatsapp {
-  background: linear-gradient(135deg, #25D366, #20BA5E);
-  color: white;
+    background: linear-gradient(135deg, #25D366, #20BA5E);
+    color: white;
 }
 .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); }
 
-/* Cards */
-.service-card, .pricing-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 32px;
-  transition: all 0.4s ease;
+/* ====== CARDS ====== */
+.service-card, .pricing-card, .testimonial-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.4s ease;
 }
-.service-card:hover, .pricing-card:hover {
-  background: rgba(15, 185, 177, 0.08);
-  border-color: var(--accent-teal);
-  transform: translateY(-8px);
+.service-card:hover, .pricing-card:hover, .testimonial-card:hover {
+    background: rgba(15, 185, 177, 0.08);
+    border-color: var(--accent-teal);
+    transform: translateY(-8px);
 }
 .pricing-card.popular {
-  border-color: var(--accent-teal);
-  background: rgba(15, 185, 177, 0.05);
-  position: relative;
+    border-color: var(--accent-teal);
+    background: rgba(15, 185, 177, 0.05);
+    position: relative;
 }
 .popular-badge {
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--accent-teal); color: #000; padding: 4px 16px;
-  border-radius: 20px; font-size: 12px; font-weight: bold;
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--accent-teal); color: #000; padding: 4px 16px;
+    border-radius: 20px; font-size: 12px; font-weight: bold;
 }
 
-/* Navbar */
+/* ====== NAVBAR ====== */
 .navbar {
-  background: rgba(10, 20, 25, 0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(10, 20, 25, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
-.nav-link { font-weight: 600; padding: 8px 0; position: relative; }
+.nav-link { font-weight: 600; padding: 8px 0; position: relative; text-decoration: none; color: inherit; }
 .nav-link:hover, .nav-link.active { color: var(--accent-teal); }
 
-/* Mobile Menu */
+/* ====== MOBILE MENU ====== */
 .mobile-menu {
-  position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-  background: #0A1419; z-index: 100; transition: right 0.3s ease;
-  padding: 40px 30px; border-left: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: #0A1419; z-index: 100; transition: right 0.3s ease;
+    padding: 40px 30px; border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 .mobile-menu.open { right: 0; }
 .mobile-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99;
-  opacity: 0; visibility: hidden; transition: 0.3s ease;
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99;
+    opacity: 0; visibility: hidden; transition: 0.3s ease;
 }
 .mobile-overlay.open { opacity: 1; visibility: visible; }
 
-/* Forms */
+/* ====== FORMS ====== */
 .form-input {
-  width: 100%; background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px; padding: 14px; color: var(--white);
-  transition: all 0.3s ease;
+    width: 100%; background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px; padding: 14px; color: var(--white);
+    transition: all 0.3s ease; font-family: inherit;
 }
-.form-input:focus { outline: none; border-color: var(--accent-teal); }
+.form-input:focus { outline: none; border-color: var(--accent-teal); box-shadow: 0 0 0 3px rgba(15, 185, 177, 0.15); }
+.form-input::placeholder { color: rgba(255, 255, 255, 0.3); }
 
-/* =========================================================
-   MOBILE SCROLL GLITCH & PERFORMANCE FIXES
-   ========================================================= */
+/* ====== SECTION DIVIDER ====== */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(15, 185, 177, 0.3), transparent);
+    margin: 0 auto;
+    max-width: 80%;
+}
 
-/* 1. Scrolling Stability & Overflow Overrides */
+/* ====== ICON WRAP ====== */
+.icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(15, 185, 177, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ====== GLASS EFFECT ====== */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ====== ORBS (Decorative) ====== */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    pointer-events: none;
+}
+.orb-1 { width: 300px; height: 300px; background: var(--accent-teal); top: 10%; left: 5%; }
+.orb-2 { width: 400px; height: 400px; background: var(--glow-teal); bottom: 10%; right: 5%; }
+.orb-3 { width: 200px; height: 200px; background: var(--accent-teal); top: 50%; left: 50%; }
+
+/* ====== MOBILE SCROLL STABILITY ====== */
 html, body {
-  overflow-x: hidden;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: none; /* Prevents bounce effects that cause clipping */
+    overflow-x: hidden;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
 }
 
-/* 2. Isolate stacking contexts to stop GPU background corruption */
 section {
-  position: relative;
-  isolation: isolate; 
+    position: relative;
+    isolation: isolate;
 }
 
-/* 3. Override Tailwind's 100vh with mobile-safe dynamic viewport height */
 .min-h-screen {
-  min-height: 100dvh !important; 
+    min-height: 100dvh !important;
 }
 
-/* 4. Strict Mobile Overrides (< 768px) */
+/* ====== MOBILE OVERRIDES (< 768px) ====== */
 @media (max-width: 767px) {
-  
-  /* Strip hardware-accelerated transforms from scroll animations */
-  .fade-in {
-    transform: none !important;
-    transition: opacity 0.4s ease !important;
-  }
-  .fade-in.visible {
-    transform: none !important;
-  }
+    .fade-in {
+        transform: none !important;
+        transition: opacity 0.4s ease !important;
+    }
+    .fade-in.visible {
+        transform: none !important;
+    }
 
-  /* Strip heavy blur and glass effects globally on mobile */
-  .glass-effect,
-  .orb,
-  .service-card,
-  .pricing-card,
-  .testimonial-card,
-  [style*="backdrop-filter"] {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    filter: none !important;
-    box-shadow: none !important;
-    will-change: auto !important;
-    transform: none !important;
-  }
+    .glass-effect,
+    .orb,
+    .service-card,
+    .pricing-card,
+    .testimonial-card,
+    [style*="backdrop-filter"] {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        box-shadow: none !important;
+        will-change: auto !important;
+        transform: none !important;
+    }
 
-  /* Solidify the specific transparent gradient in the About section */
-  .about-stats-wrapper {
-    background: rgba(15, 29, 37, 0.98) !important; /* Solid dark fallback */
-    background-image: none !important;
-    border: 1px solid rgba(15, 185, 177, 0.15) !important;
-  }
+    .about-stats-wrapper {
+        background: rgba(15, 29, 37, 0.98) !important;
+        background-image: none !important;
+        border: 1px solid rgba(15, 185, 177, 0.15) !important;
+    }
 
-  /* Solidify the inner stat cards */
-  .mobile-safe-card {
-    background: #0B1F24 !important;
-    transform: none !important;
-    transition: none !important;
-  }
+    .mobile-safe-card {
+        background: #0B1F24 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .service-card:hover,
+    .pricing-card:hover,
+    .testimonial-card:hover {
+        transform: none !important;
+    }
+}
+
+/* ====== PRINT STYLES ====== */
+@media print {
+    .navbar, .mobile-menu, .mobile-overlay, .btn-whatsapp, .orb { display: none !important; }
+    body { background: white; color: black; }
 }
