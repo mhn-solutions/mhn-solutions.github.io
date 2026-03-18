@@ -1,0 +1,13 @@
+# MHN Solutions — robots.txt
+# https://mhnsolutions.com
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# Sitemap Location
+Sitemap: https://mhnsolutions.com/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
